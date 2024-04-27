@@ -6,13 +6,13 @@ class NoteManager:
     def load_notes(self):
         try:
             with open(self.filename, 'r') as file:
-                return [Note(**note) for note in json.load(file)]
+                return [Note(**note) for note in json.load(file)] # type: ignore
         except FileNotFoundError:
             return []
 
     def save_notes(self):
         with open(self.filename, 'w') as file:
-            json.dump([note.to_dict() for note in self.notes], file, indent=4)
+            json.dump([note.to_dict() for note in self.notes], file, indent=4) # type: ignore
 
     def add_note(self, note):
         self.notes.append(note)
