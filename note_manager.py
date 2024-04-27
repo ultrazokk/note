@@ -1,3 +1,7 @@
+import json
+from note import Note
+
+
 class NoteManager:
     def __init__(self, filename='notes.json'):
         self.filename = filename
@@ -6,13 +10,13 @@ class NoteManager:
     def load_notes(self):
         try:
             with open(self.filename, 'r') as file:
-                return [Note(**note) for note in json.load(file)] # type: ignore
+                return [Note(**note) for note in json.load(file)] 
         except FileNotFoundError:
             return []
 
     def save_notes(self):
         with open(self.filename, 'w') as file:
-            json.dump([note.to_dict() for note in self.notes], file, indent=4) # type: ignore
+            json.dump([note.to_dict() for note in self.notes], file, indent=4) 
 
     def add_note(self, note):
         self.notes.append(note)

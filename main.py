@@ -29,8 +29,7 @@ def main():
         elif choice == '5':
             break
         else:
-            print("Неверный выбор. Попробуйте ещё раз.")
+            print("Неверный выбор. Попробуйте ещё раз.")          
 
 if __name__ == "__main__":
-    main()            
-
+    main()
