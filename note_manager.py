@@ -29,3 +29,14 @@ class NoteManager:
         if note:
             note.update(title,body)
             self.save_notes()
+
+    def delete_note(self, note_id):
+        self.notes = [note for note in self.notes if note.id != note_id]
+        self.save_notes()
+
+    def list_notes(self):
+        return self.notes
+    
+
+
+
